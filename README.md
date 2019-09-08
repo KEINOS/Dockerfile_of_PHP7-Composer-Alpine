@@ -1,5 +1,6 @@
-![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/keinos/php7-composer-alpine)
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/keinos/php7-composer-alpine)
+[![](https://images.microbadger.com/badges/image/keinos/php7-composer-alpine.svg)](https://microbadger.com/images/keinos/php7-composer-alpine "View image info on microbadger.com")
+[![](https://img.shields.io/docker/cloud/automated/keinos/php7-composer-alpine)](https://hub.docker.com/r/keinos/php7-composer-alpine "Docker Cloud Automated build")
+[![](https://img.shields.io/docker/cloud/build/keinos/php7-composer-alpine)](https://hub.docker.com/r/keinos/php7-composer-alpine/builds "Docker Cloud Build Status")
 
 # Dockerfile of PHP7 with Composer installed on Alpine
 
@@ -7,10 +8,19 @@
 docker pull keinos/php7-composer-alpine:latest
 ```
 
+## Image Info
+
+- Source: https://github.com/KEINOS/Dockerfile_of_PHP7-Composer-Alpine @ GitHub
+- Image: https://hub.docker.com/r/keinos/php7-composer-alpine @ Docker Hub
+- Base Image: [keinos/alpine:latest](https://hub.docker.com/r/keinos/alpine)
+
+## Sample Usage
+
 ```shellsession
 $ docker run --rm -it keinos/php7-composer-alpine:latest /bin/sh
 / # composer --version
 Composer version 1.9.0 2019-08-02 20:55:32
+/ #
 / # composer diagnose
 Checking platform settings: OK
 Checking git settings: OK
@@ -29,4 +39,34 @@ PHP binary path: /usr/bin/php7
 / #
 / # exit
 $
+```
+
+```shellsession
+$ docker run --rm -it keinos/php7-composer-alpine:latest /bin/sh
+/ # whoami
+root
+/ #
+/ # arch
+x86_64
+/ #
+/ # # Loaded PHP Extensions
+/ # php -r '$list=get_loaded_extensions();sort($list, SORT_NATURAL | SORT_FLAG_CASE); print_r($list);'
+Array
+(
+    [0] => Core
+    [1] => date
+    [2] => filter
+    [3] => hash
+    [4] => json
+    [5] => libxml
+    [6] => mbstring
+    [7] => openssl
+    [8] => pcre
+    [9] => Phar
+    [10] => readline
+    [11] => Reflection
+    [12] => SPL
+    [13] => standard
+    [14] => zlib
+)
 ```
