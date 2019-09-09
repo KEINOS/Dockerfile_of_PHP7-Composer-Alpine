@@ -3,7 +3,7 @@
 FROM keinos/php7-alpine:latest
 
 # Install Requirements
-RUN apk add --update \
+RUN apk --no-cache add \
 # Requirement for downloading Composer's installer: composer-setup.sh
       php-openssl \
 # Requirement of composer-setup.sh to run
